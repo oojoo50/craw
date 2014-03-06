@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CrewDBTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_crew_item">CrewItem</string>
+    <string name="title_activity_crew_item_list">CrewItemListActivity</string>
+    <string name="title_activity_meal_time">MealTimeActivity</string>
+
+</resources>
