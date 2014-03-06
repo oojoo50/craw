@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical" >
+
+        <com.example.view.ArcView
+            android:id="@+id/laArcView"
+            android:layout_marginBottom="1dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="1" />
+
+        <com.example.view.ArcView
+            android:id="@+id/laArcView2"
+            android:layout_marginTop="1dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff"
+        android:orientation="vertical" >
+
+        
+        <TextView
+            android:id="@+id/laExtraTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="" />
+        
+        <TextView
+            android:id="@+id/laExtraTime"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/laTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총시간(분)" />
+
+        <EditText
+            android:id="@+id/laTotalMealTime"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/laTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="씹는시간(초)" />
+
+        <EditText
+            android:id="@+id/laCrewMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/laCrewStartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작" />
+
+        <Button
+            android:id="@+id/laCrewStopBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종료" />
+    </LinearLayout>
+
+</LinearLayout>
