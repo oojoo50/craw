@@ -1,20 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="#FFFFFFFF">
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF" >
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:layout_alignParentTop="true"
+        android:gravity="center"
         android:text="식사시간 타이머"
-        android:textColor="#000000" 
-        />
+        android:textColor="#000000" />
 
     <LinearLayout
         android:id="@+id/timerLayer"
@@ -30,21 +29,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="식사시간(분)"
             android:layout_weight="1"
+            android:text="식사시간(분)"
             android:textColor="#000000" />
-
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="1회 씹는시간(초)"
             android:layout_weight="1"
+            android:text="1회 씹는시간(초)"
             android:textColor="#000000" />
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -61,8 +57,8 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:inputType="number"
             android:layout_weight="1"
+            android:inputType="number"
             android:textSize="12sp" />
 
         <EditText
@@ -70,8 +66,8 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
-            android:inputType="number"
             android:layout_weight="1"
+            android:inputType="number"
             android:textSize="12sp" />
     </LinearLayout>
 
