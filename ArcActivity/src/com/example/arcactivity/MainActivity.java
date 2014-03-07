@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,11 +33,22 @@ public class MainActivity extends Activity {
 	Button crewStartBtn;	
 	Button crewStopBtn;
 	
-	CountDownTimer countDownTimer; 
+	CountDownTimer countDownTimer;
+	
+	boolean isStarted = false;
 	
 	int totalMealTimeInt = 0;
 	
 	int timesGone = 0;
+	
+	
+	int crewMinitInt = 0;		
+	int totalTime = 0;
+	float divition = 0;
+	
+	int count = 0;	
+	float crewSweep = 0;
+	float crewSweep2 = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +76,13 @@ public class MainActivity extends Activity {
 			crewStopBtn = (Button)findViewById(R.id.crewStopBtn);
 		}
 		
+		if(isStarted){
+			
+			crewMinute.setText(crewMinuteStr);
+			totalMealTime.setText(totalMealTimeStr);
+			changeOrientation();			
+		}
+		
 		crewStartBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -85,15 +104,18 @@ public class MainActivity extends Activity {
 				
 				totalMealTimeInt = Integer.parseInt(totalMealTimeStr);
 				
+				crewMinitInt = Integer.parseInt(crewMinuteStr);		
+				totalTime = totalMealTimeInt * 60;
+				divition = totalTime / crewMinitInt;
+				
+				count = 0;	
+				crewSweep = 0;
+				crewSweep2 = 0;
+				
+				isStarted = true;				
+
+				
 				countDownTimer = new CountDownTimer((totalMealTimeInt * 60 * 1000) + 1000, 1000){
-					
-					int crewMinitInt = Integer.parseInt(crewMinuteStr);		
-					int totalTime = totalMealTimeInt * 60;
-					float divition = totalTime / crewMinitInt;
-					
-					int count = 0;	
-					float crewSweep = 0;
-					float crewSweep2 = 0;
 					
 					@Override
 					public void onFinish() {
@@ -103,33 +125,14 @@ public class MainActivity extends Activity {
 						arcView.arcDraw(0);
 						arcView2.arcDraw(0);
 						crewStartBtn.setEnabled(true);
+						isStarted = false;
 					}
 
 					@Override
 					public void onTick(long arg0) {
-						count++;
-						timesGone++;
-						crewSweep += (float)360/crewMinitInt;
-						if(count == crewMinitInt){
-							
-							crewSweep2 += (float)360/divition;
-							arcView2.arcDraw(crewSweep2);
-							
-							count = 0;
-							crewSweep = 0;
-						}
 						
-						int remainingTime = totalTime - timesGone;
-						
-						arcView.arcDraw(crewSweep);
-						extraTime.setText(String.valueOf(crewMinitInt - count) + "초");
-						//Log.i(TAG, String.format("sweep:%s, %s", crewSweep, count));
-						if(remainingTime > 0){
-							extraTotalTime.setText(
-									(remainingTime/60 > 0 ? ((int)remainingTime/60) + "분" : "")
-									+ (remainingTime%60 > 0 ? ((int)remainingTime%60) + "초" : "")
-							);
-						}
+						changeOrientation();						
+
 					}
 				};
 				
@@ -141,6 +144,7 @@ public class MainActivity extends Activity {
 		crewStopBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				isStarted = false;
 				if(countDownTimer != null){
 					extraTime.setText("");
 					extraTotalTime.setText("");
@@ -154,6 +158,32 @@ public class MainActivity extends Activity {
 		});
 		// 현재 화면 안 꺼지게..
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	}
+	
+	public void changeOrientation(){
+		count++;
+		timesGone++;
+		crewSweep += (float)360/crewMinitInt;
+		if(count == crewMinitInt){
+			
+			crewSweep2 += (float)360/divition;
+			arcView2.arcDraw(crewSweep2);
+			
+			count = 0;
+			crewSweep = 0;
+		}
+		
+		int remainingTime = totalTime - timesGone;
+		
+		arcView.arcDraw(crewSweep);
+		extraTime.setText(String.valueOf(crewMinitInt - count) + "초");
+		//Log.i(TAG, String.format("sweep:%s, %s", crewSweep, count));
+		if(remainingTime > 0){
+			extraTotalTime.setText(
+					(remainingTime/60 > 0 ? ((int)remainingTime/60) + "분" : "")
+					+ (remainingTime%60 > 0 ? ((int)remainingTime%60) + "초" : "")
+			);
+		}
 	}
 
 	@Override
