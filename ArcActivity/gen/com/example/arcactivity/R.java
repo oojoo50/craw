@@ -33,12 +33,12 @@ public final class R {
         public static final int crewStopBtn=0x7f08000e;
         public static final int extraTime=0x7f080008;
         public static final int extraTotalTime=0x7f080009;
-        public static final int laArcView=0x7f08000f;
-        public static final int laArcView2=0x7f080010;
+        public static final int laArcView=0x7f080010;
+        public static final int laArcView2=0x7f080012;
         public static final int laCrewMinute=0x7f080016;
         public static final int laCrewStartBtn=0x7f080017;
         public static final int laCrewStopBtn=0x7f080018;
-        public static final int laExtraTime=0x7f080012;
+        public static final int laExtraTime=0x7f08000f;
         public static final int laExtraTotalTime=0x7f080011;
         public static final int laTextView2=0x7f080013;
         public static final int laTextView3=0x7f080015;

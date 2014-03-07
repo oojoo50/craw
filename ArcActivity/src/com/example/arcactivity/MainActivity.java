@@ -74,12 +74,12 @@ public class MainActivity extends Activity {
 				extraTimeStr = extraTime.getText().toString();
 				
 				if(crewMinuteStr == null || "".equals(crewMinuteStr.trim())){
-					Toast.makeText(getApplicationContext(), "한번 씹는 시간을 입력하세요.", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "1회 씹는 시간을 입력하세요.", Toast.LENGTH_LONG).show();
 					return;
 				}
 				
 				if(totalMealTimeStr == null || "".equals(totalMealTimeStr.trim())){
-					Toast.makeText(getApplicationContext(), "총씹는 시간을 입력하세요.", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "식사시간을 입력하세요.", Toast.LENGTH_LONG).show();
 					return;
 				}
 				
@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
 						int remainingTime = totalTime - timesGone;
 						
 						arcView.arcDraw(crewSweep);
-						extraTime.setText(String.valueOf(crewMinitInt - count));
+						extraTime.setText(String.valueOf(crewMinitInt - count) + "초");
 						//Log.i(TAG, String.format("sweep:%s, %s", crewSweep, count));
 						if(remainingTime > 0){
 							extraTotalTime.setText(

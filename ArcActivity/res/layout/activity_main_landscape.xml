@@ -1,88 +1,140 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:background="#FFFFFFFF" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffffff"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical" >
-
-        <com.example.view.ArcView
-            android:id="@+id/laArcView"
-            android:layout_marginBottom="1dp"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_weight="1" />
-
-        <com.example.view.ArcView
-            android:id="@+id/laArcView2"
-            android:layout_marginTop="1dp"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="식사시간 타이머"
+        android:textColor="#000000" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textTitle"
         android:background="#ffffffff"
-        android:orientation="vertical" >
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
 
-        
-        <TextView
-            android:id="@+id/laExtraTotalTime"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="" />
-        
-        <TextView
-            android:id="@+id/laExtraTime"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/laTextView2"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="총시간(분)" />
+            android:layout_weight="1"
+            android:background="#ffffffff"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/laTotalMealTime"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:ems="10"
-            android:inputType="number" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/laTextView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="씹는시간(초)" />
+                <TextView
+                    android:id="@+id/laExtraTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="#000000" />
 
-        <EditText
-            android:id="@+id/laCrewMinute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+                <com.example.view.ArcView
+                    android:id="@+id/laArcView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/laCrewStartBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시작" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/laCrewStopBtn"
-            android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/laExtraTotalTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#000000" />
+
+                <com.example.view.ArcView
+                    android:id="@+id/laArcView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="종료" />
+            android:layout_weight="1"
+            android:background="#ffffffff"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/laTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식사시간(분)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/laTotalMealTime"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/laTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1회 씹는시간(초)"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/laCrewMinute"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffffff"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/laCrewStartBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="시작" />
+
+                <Button
+                    android:id="@+id/laCrewStopBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="종료" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
